@@ -20,12 +20,12 @@ export const createCash = async (
   if (req)
     try {
       if (!req.body) {
-        throw new HTTP404Error("parameter is required");
+        throw new HTTP400Error("parameter is required");
       }
       let bodyParam = req.body;
 
       if (!bodyParam.type) {
-        throw new HTTP404Error("cash type is required");
+        throw new HTTP400Error("cash type is required");
       }
       if (!bodyParam.value) {
         throw new HTTP400Error("cash value is required");
@@ -61,12 +61,12 @@ export const bulkCreateCash = async (
   if (req)
     try {
       if (!req.body) {
-        throw new HTTP404Error("parameter is required");
+        throw new HTTP400Error("parameter is required");
       }
       let bodyParam = req.body;
 
       if (!bodyParam || bodyParam.length <= 0) {
-        throw new HTTP404Error("cash is required");
+        throw new HTTP400Error("cash is required");
       }
 
       database

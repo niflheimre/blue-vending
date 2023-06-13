@@ -128,7 +128,7 @@ export const createBranchProduct = async (
   if (req)
     try {
       if (!req.body) {
-        throw new HTTP404Error("parameter is required");
+        throw new HTTP400Error("parameter is required");
       }
       let bodyParam = req.body;
 
@@ -171,12 +171,12 @@ export const bulkCreateProduct = async (
   if (req)
     try {
       if (!req.body) {
-        throw new HTTP404Error("parameter is required");
+        throw new HTTP400Error("parameter is required");
       }
       let bodyParam = req.body;
 
       if ((bodyParam?.products?.length ?? 0) === 0) {
-        throw new HTTP404Error("product is required");
+        throw new HTTP400Error("product is required");
       }
 
       database
@@ -207,17 +207,17 @@ export const bulkCreateBranchProduct = async (
   if (req)
     try {
       if (!req.body) {
-        throw new HTTP404Error("parameter is required");
+        throw new HTTP400Error("parameter is required");
       }
       if (!req.params.branchId) {
-        throw new HTTP404Error("branch id is required");
+        throw new HTTP400Error("branch id is required");
       }
       let products = req.body.products.map((product) => {
         return { ...product, branchId: req.params.branchId };
       });
 
       if ((products.length ?? 0) === 0) {
-        throw new HTTP404Error("product is required");
+        throw new HTTP400Error("product is required");
       }
 
       database
@@ -272,7 +272,7 @@ export const deleteProduct = async (
 ) => {
   try {
     if (!req.params || !req.params.productId) {
-      throw new HTTP404Error("parameter is required");
+      throw new HTTP400Error("parameter is required");
     }
 
     let id = req.params.productId;

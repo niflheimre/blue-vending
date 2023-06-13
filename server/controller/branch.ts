@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from "express";
-import { Op, Transaction, UpdateOptions } from "sequelize";
+import { Transaction, UpdateOptions } from "sequelize";
 import { database } from "./../config/database";
 import * as ErrorHandler from "./../utils/error_handler";
 import { HTTP404Error } from "./../utils/error_handler";
@@ -10,11 +10,7 @@ import {
 } from "../models/branch";
 import * as BranchService from "../service/branch";
 import * as CashBranchService from "../service/cash_branch";
-import {
-  CashBranch,
-  CashBranchAttribute,
-  CashStockItem,
-} from "../models/cash_branch";
+import { CashBranch } from "../models/cash_branch";
 import { HTTP400Error } from "../utils/http_errors";
 import { Cash } from "../models/cash";
 
@@ -115,7 +111,7 @@ export const getCashStock = async (
   next: NextFunction
 ) => {
   if (!req.params.branchId) {
-    throw new HTTP404Error("branch id is required");
+    throw new HTTP400Error("branch id is required");
   }
   try {
     let cashStock = await CashBranchService.getReturnCashStock(

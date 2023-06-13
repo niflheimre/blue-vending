@@ -1,15 +1,12 @@
 import { NextFunction, Request, Response } from "express";
-import { Transaction, UpdateOptions } from "sequelize";
+import { Transaction } from "sequelize";
 import { database } from "./../config/database";
 import * as ErrorHandler from "./../utils/error_handler";
 import { HTTP404Error } from "./../utils/error_handler";
-import * as CashService from "../service/cash";
 import * as CashBranchService from "../service/cash_branch";
 import * as StockTransactionService from "../service/transaction";
-import { Cash, CashAttribute } from "../models/cash";
-import { HTTP400Error, HTTPClientError } from "../utils/http_errors";
-import { CashBranch, CashStockItem } from "../models/cash_branch";
-import { updateBranchProduct } from "../service/product";
+import { HTTP400Error, HTTP403Error } from "../utils/http_errors";
+import { CashBranch } from "../models/cash_branch";
 import { Stock } from "../models/stock";
 import { TRANSACTION_STATUS } from "../const";
 
@@ -33,12 +30,12 @@ export const createTransaction = async (
   if (req)
     try {
       if (!req.body) {
-        throw new HTTP404Error("parameter is required");
+        throw new HTTP400Error("parameter is required");
       }
       let bodyParam = req.body;
 
       if (!bodyParam.stockId) {
-        throw new HTTP404Error("stockId is required");
+        throw new HTTP400Error("stockId is required");
       }
       if (!bodyParam.branchId) {
         throw new HTTP400Error("branch id is required");
@@ -65,7 +62,7 @@ export const createTransaction = async (
         returnPrice
       );
 
-      if (!returnCash) throw new HTTP400Error("change insufficient");
+      if (!returnCash) throw new HTTP403Error("Insufficient Change");
 
       database
         .transaction(async (t: Transaction) => {
