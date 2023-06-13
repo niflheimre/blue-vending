@@ -12,6 +12,11 @@ easily add a new expansion in the future.
 The project is dockerized. to start the project, please run
 
 ```sh
+./pre-script.sh
+```
+then
+
+```sh
 docker-compose up
 ```
 
