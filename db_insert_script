@@ -1,0 +1,98 @@
+INSERT INTO branch
+(id, "branchName", status, "createdAt", "updatedAt")
+VALUES(1, 'Blue Vending', 'active', '2023-06-12 13:59:22.670', '2023-06-12 13:59:22.670');
+
+INSERT INTO cash
+(id, "type", value)
+VALUES(1, 'bank_note', 20);
+INSERT INTO cash
+(id, "type", value)
+VALUES(2, 'bank_note', 50);
+INSERT INTO cash
+(id, "type", value)
+VALUES(3, 'bank_note', 100);
+INSERT INTO cash
+(id, "type", value)
+VALUES(4, 'bank_note', 500);
+INSERT INTO cash
+(id, "type", value)
+VALUES(5, 'bank_note', 1000);
+INSERT INTO cash
+(id, "type", value)
+VALUES(6, 'coin', 1);
+INSERT INTO cash
+(id, "type", value)
+VALUES(7, 'coin', 5);
+INSERT INTO cash
+(id, "type", value)
+VALUES(8, 'coin', 10);
+
+INSERT INTO cash_branch
+(id, "branchId", "cashId", amount, "isActive", "isReturnable", "createdAt", "updatedAt")
+VALUES(1, 1, 1, 100, true, false, '2023-06-12 17:27:42.990', '2023-06-12 17:27:42.990');
+INSERT INTO cash_branch
+(id, "branchId", "cashId", amount, "isActive", "isReturnable", "createdAt", "updatedAt")
+VALUES(2, 1, 2, 100, true, false, '2023-06-12 17:27:43.007', '2023-06-12 17:27:43.007');
+INSERT INTO cash_branch
+(id, "branchId", "cashId", amount, "isActive", "isReturnable", "createdAt", "updatedAt")
+VALUES(3, 1, 3, 100, true, false, '2023-06-12 17:27:43.013', '2023-06-12 17:27:43.013');
+INSERT INTO cash_branch
+(id, "branchId", "cashId", amount, "isActive", "isReturnable", "createdAt", "updatedAt")
+VALUES(4, 1, 4, 100, true, false, '2023-06-12 17:27:43.020', '2023-06-12 17:27:43.020');
+INSERT INTO cash_branch
+(id, "branchId", "cashId", amount, "isActive", "isReturnable", "createdAt", "updatedAt")
+VALUES(5, 1, 5, 100, true, false, '2023-06-12 17:27:43.024', '2023-06-12 17:27:43.024');
+INSERT INTO cash_branch
+(id, "branchId", "cashId", amount, "isActive", "isReturnable", "createdAt", "updatedAt")
+VALUES(6, 1, 6, 1000, true, true, '2023-06-12 17:27:43.030', '2023-06-12 17:27:43.030');
+INSERT INTO cash_branch
+(id, "branchId", "cashId", amount, "isActive", "isReturnable", "createdAt", "updatedAt")
+VALUES(7, 1, 7, 1000, true, true, '2023-06-12 17:27:43.035', '2023-06-12 17:27:43.035');
+INSERT INTO cash_branch
+(id, "branchId", "cashId", amount, "isActive", "isReturnable", "createdAt", "updatedAt")
+VALUES(8, 1, 8, 1000, true, true, '2023-06-12 17:27:43.039', '2023-06-12 17:27:43.039');
+
+INSERT INTO product_category
+(id, "categoryName")
+VALUES(1, 'Drink');
+INSERT INTO product_category
+(id, "categoryName")
+VALUES(2, 'Snack');
+
+INSERT INTO "public"."product" ("id", "name", "description", "categoryId", "imagePath", "createdAt", "updatedAt") VALUES
+(1, 'Coke can', NULL, 1, 'image/coke-can.png', '2023-06-12 10:09:38.909+00', '2023-06-12 10:09:38.909+00'),
+(2, 'Unif All You Need', NULL, 1, 'image/juice.png', '2023-06-12 10:09:38.909+00', '2023-06-12 10:09:38.909+00'),
+(3, 'Meji milk', NULL, 1, 'image/milk.png', '2023-06-12 10:09:38.909+00', '2023-06-12 10:09:38.909+00'),
+(4, 'Fresh Water', NULL, 1, 'image/water-bottle.png', '2023-06-12 10:09:38.909+00', '2023-06-12 10:09:38.909+00'),
+(5, 'Sprite can', NULL, 1, 'image/sprite.png', '2023-06-12 10:09:38.909+00', '2023-06-12 10:09:38.909+00'),
+(6, 'Doritos', NULL, 2, 'image/doritos.png', '2023-06-12 10:09:38.909+00', '2023-06-12 10:09:38.909+00'),
+(7, 'Lays Original', NULL, 2, 'image/lays.png', '2023-06-12 10:09:38.909+00', '2023-06-12 10:09:38.909+00'),
+(8, 'M&M Chocolate', NULL, 2, 'image/mnm.png', '2023-06-12 10:09:38.909+00', '2023-06-12 10:09:38.909+00'),
+(9, 'Oreo', NULL, 2, 'image/oreo.png', '2023-06-12 10:09:38.909+00', '2023-06-12 10:09:38.909+00'),
+(10, 'Snicker', NULL, 2, 'image/snicker.png', '2023-06-12 10:09:38.909+00', '2023-06-12 10:09:38.909+00');
+
+INSERT INTO stock
+(id, "branchId", "productId", price, status, "isRecommend", quantity, "createdAt", "updatedAt")
+VALUES(5, 1, 1, 15, 'active', false, 100, '2023-06-12 14:03:20.579', '2023-06-12 14:03:20.579');
+INSERT INTO stock
+(id, "branchId", "productId", price, status, "isRecommend", quantity, "createdAt", "updatedAt")
+VALUES(7, 1, 4, 7, 'active', false, 100, '2023-06-12 14:03:20.579', '2023-06-12 14:03:20.579');
+INSERT INTO stock
+(id, "branchId", "productId", price, status, "isRecommend", quantity, "createdAt", "updatedAt")
+VALUES(8, 1, 5, 15, 'active', false, 100, '2023-06-12 14:03:20.579', '2023-06-12 14:03:20.579');
+INSERT INTO stock
+(id, "branchId", "productId", price, status, "isRecommend", quantity, "createdAt", "updatedAt")
+VALUES(9, 1, 6, 40, 'active', false, 100, '2023-06-12 14:03:20.579', '2023-06-12 14:03:20.579');
+INSERT INTO stock
+(id, "branchId", "productId", price, status, "isRecommend", quantity, "createdAt", "updatedAt")
+VALUES(10, 1, 8, 20, 'active', false, 100, '2023-06-12 14:03:20.579', '2023-06-12 14:03:20.579');
+INSERT INTO stock
+(id, "branchId", "productId", price, status, "isRecommend", quantity, "createdAt", "updatedAt")
+VALUES(11, 1, 9, 55, 'active', false, 100, '2023-06-12 14:03:20.579', '2023-06-12 14:03:20.579');
+INSERT INTO stock
+(id, "branchId", "productId", price, status, "isRecommend", quantity, "createdAt", "updatedAt")
+VALUES(12, 1, 10, 28, 'active', false, 100, '2023-06-12 14:03:20.579', '2023-06-12 14:03:20.579');
+INSERT INTO stock
+(id, "branchId", "productId", price, status, "isRecommend", quantity, "createdAt", "updatedAt")
+VALUES(6, 1, 3, 14, 'active', false, 93, '2023-06-12 14:03:20.579', '2023-06-12 18:27:50.906');
+
