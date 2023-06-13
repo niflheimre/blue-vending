@@ -1,0 +1,56 @@
+version: '3.8'
+
+services:
+  blue-vending-server:
+    env_file:
+        - ./server/.env
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    container_name: blue-vending-server
+    depends_on:
+      - postgres-docker
+    networks:
+      - postgres-network
+    restart: on-failure
+    expose:
+      - '8080'
+    ports:
+      - '8080:8080'
+    command: npm run dev
+  postgres-docker:
+    container_name: postgres-docker
+    build: ./server
+    image: postgres:15
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: blue_vending_db
+    volumes:
+       - ./postgres:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - postgres-network
+    restart: on-failure
+  react-docker:
+    env_file:
+      - ./client/.env
+    environment:
+      - NODE_ENV=dev
+    build: ./client
+    volumes:
+      -  /app/node_modules
+      - ./client:/app
+    container_name: blue-vending-client
+    expose:
+      - '3000'
+    ports:
+      - '3000:3000'
+    networks:
+      - postgres-network
+    depends_on:
+      - blue-vending-server
+
+networks:
+  postgres-network:

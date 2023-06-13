@@ -1,0 +1,34 @@
+[
+  {
+    "type": "bank_note",
+    "value": 20
+  },
+  {
+    "type": "bank_note",
+    "value": 50
+  },
+  {
+    "type": "bank_note",
+    "value": 100
+  },
+  {
+    "type": "bank_note",
+    "value": 500
+  },
+  {
+    "type": "bank_note",
+    "value": 1000
+  },
+  {
+    "type": "coin",
+    "value": 1
+  },
+  {
+    "type": "coin",
+    "value": 5
+  },
+  {
+    "type": "coin",
+    "value": 10
+  }
+]

@@ -1,0 +1,12 @@
+# base image
+FROM node:14.15.0
+
+RUN mkdir -p /app/public /app/src
+WORKDIR /app
+COPY tsconfig.json /app/tsconfig.json 
+COPY package.json /app/package.json
+COPY package-lock.json /app/package-lock.json
+## install only the packages defined in the package-lock.json (faster than the normal npm install)
+RUN npm install
+# Run 'npm run dev' when the container starts.
+CMD ["npm", "start"]

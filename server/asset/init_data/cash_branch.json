@@ -1,0 +1,50 @@
+[
+  {
+    "cashId": 1,
+    "amount": 100,
+    "isReturnable": false,
+    "isActive": true
+  },
+  {
+    "cashId": 2,
+    "amount": 100,
+    "isReturnable": false,
+    "isActive": true
+  },
+  {
+    "cashId": 3,
+    "amount": 100,
+    "isReturnable": false,
+    "isActive": true
+  },
+  {
+    "cashId": 4,
+    "amount": 100,
+    "isReturnable": false,
+    "isActive": true
+  },
+  {
+    "cashId": 5,
+    "amount": 100,
+    "isReturnable": false,
+    "isActive": true
+  },
+  {
+    "cashId": 6,
+    "amount": 1000,
+    "isReturnable": true,
+    "isActive": true
+  },
+  {
+    "cashId": 7,
+    "amount": 1000,
+    "isReturnable": true,
+    "isActive": true
+  },
+  {
+    "cashId": 8,
+    "amount": 1000,
+    "isReturnable": true,
+    "isActive": true
+  }
+]
