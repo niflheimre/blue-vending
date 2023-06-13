@@ -1,6 +1,6 @@
 import axios, { AxiosError } from "axios";
 import { useEffect, useState } from "react";
-import { product, productCategory } from "../data/product";
+import { product } from "../data/product";
 
 function useGetProduct(branchId: string | undefined) {
   const url = `${process.env.REACT_APP_BACKEND_HOST}/api/product/branch/${branchId}`;

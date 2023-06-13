@@ -1,5 +1,5 @@
 import axios, { AxiosError } from "axios";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { cash } from "../data/cash";
 
 function useGetCash() {
@@ -26,7 +26,7 @@ function useGetCash() {
     return () => {
       mount = false;
     };
-  }, []);
+  }, [url]);
 
   return { data: data, error: error };
 }

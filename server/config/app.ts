@@ -5,7 +5,6 @@ import gracefulFs from "graceful-fs";
 import errorHandlers from "../middleware/error_handlers";
 import routes from "../routes";
 import { applyMiddleware, applyRoutes } from "../utils";
-import path from "path";
 gracefulFs.gracefulify(fs);
 
 const app = express();

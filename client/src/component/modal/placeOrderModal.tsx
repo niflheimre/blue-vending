@@ -85,7 +85,7 @@ const PlaceOrderModal: React.FC<Props> = ({
         ),
       });
     }
-  },[cashIn])
+  },[cashIn, closeModal])
 
   return (
     <Modal

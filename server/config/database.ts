@@ -1,9 +1,4 @@
-import sequelize, {
-  Dialect,
-  FindOptions,
-  Sequelize,
-  Transaction,
-} from "sequelize";
+import sequelize, { FindOptions, Sequelize, Transaction } from "sequelize";
 import { makeReadReplica, makeWriteReplica } from "../utils/database_healper";
 import { writeSequelizeFile } from "../utils/logging_sequelize";
 import { initialModel } from "./initial_model";

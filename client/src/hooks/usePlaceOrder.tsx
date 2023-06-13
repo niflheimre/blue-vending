@@ -1,5 +1,5 @@
 import axios, { AxiosError } from "axios";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import { product } from "../data/product";
 import { cash } from "../data/cash";
 import { Modal } from "antd";
@@ -10,8 +10,6 @@ function usePlaceOrder(product: product, cashIn: cash[]) {
 
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | undefined>();
-
-
 
   const placeOrder = useCallback(async () => {
     setLoading(true);
@@ -51,13 +49,18 @@ function usePlaceOrder(product: product, cashIn: cash[]) {
       (error: AxiosError) => {
         setLoading(false);
         setError(error.message);
+        const statusCode = Number.parseInt(error.code ?? "500");
         Modal.error({
           title: "We cannot complete your Purchased",
           content: (
             <div>
-              <p>{"Insufficient change. Please collect your money :("}</p>
+              <p>{`${
+                statusCode > 400 && statusCode < 500
+                  ? error.message
+                  : "Error Occurred"
+              }. Please collect your cash :(`}</p>
 
-              <p>Your money : </p>
+              <p>Your cash : </p>
               {cashIn.map((cash) => (
                 <li>
                   {cash.value}฿ x{cash.amount}

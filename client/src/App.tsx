@@ -1,12 +1,10 @@
 import "./App.scss";
 import { Col, Empty, Row, Typography } from "antd";
 import ProductCard from "./component/product/productCard";
-import { product } from "./data/product";
 import useGetProduct from "./hooks/useGetProduct";
-import useGetCash from "./hooks/useGetCash";
 
 function App() {
-  const { data, error, loading } = useGetProduct(
+  const { data, error } = useGetProduct(
     process.env.REACT_APP_BRANCH_ID
   );
 
